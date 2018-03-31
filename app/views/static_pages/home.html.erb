@@ -1,2 +1,7 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<%# provideメソッドでタイトルをホームに設定してyieldで引き出す %>
+<% provide(:title, "ホーム") %>
+<%# application.htmlでhtml構造を担保しているから構造を削除しても大丈夫 %>
+  <h1>twitter</h1>
+   <p>twitterを秒で作ってやるぜ<br>
+   本物は<a href="https://twitter.com/">こちら</a>
+   </p>
