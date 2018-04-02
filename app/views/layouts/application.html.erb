@@ -3,12 +3,37 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 
+    'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 
+    'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+
   </head>
 
   <body>
-    <%= yield %>
+    <%# ヘッダーを作っていく %>
+    <%# navbar などスペース区切りで3つのクラスが置かれている %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%# #は名前付きルートに変わる %>
+        <%= link_to "twitter", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム", '#' %></li>
+            <li><%= link_to "ヘルプ", '#' %></li>
+            <li><%= link_to "ログイン", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <%# ここは何してるかわからん %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
