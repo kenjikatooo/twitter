@@ -1,4 +1,3 @@
-<%# application.htmlでhtml構造を担保しているから構造を削除しても大丈夫 %>
 <div class="center jumbotron">
   <h1>twitter</h1>
    <p>twitterを秒で作ってやるぜ<br>
@@ -7,8 +6,4 @@
 
    <%= link_to "新規登録", signup_path, class:"btn btn-lg btn-primary" %>
 </div>
-
-<%# twitterのロゴが画像で表示されるようにする %>
-<%# altはロゴが表示されない場合に表示される文字 %>
-<%# link_to 表示 飛ぶ先 という書き方なのでimageを表示させtwitterへ飛ばす %>
 <%= link_to image_tag("twitter_logo", alt: "twitter logo"), 'https://twitter.com' %>
