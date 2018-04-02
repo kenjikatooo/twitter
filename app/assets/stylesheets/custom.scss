@@ -1,0 +1,90 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* 全体的なレイアウトの設計 */
+
+
+/* application.cssのbodyの余白を60pxにする */
+
+body {
+    padding-top: 60px;
+}
+
+
+/* ここは現状まだ変化なし */
+
+section {
+    overflow: auto;
+}
+
+
+/* ここもあまりわからない */
+
+textarea {
+    resize: vertical;
+}
+
+
+/* home.html.erbのcenterクラスの文字を中央揃え */
+
+.center {
+    text-align: center;
+}
+
+.center h1 {
+    margin-bottom: 10px;
+}
+
+
+/* タイポグラフィーの追加 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #777;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+
+/* ヘッダーに関して */
+
+
+/* ロゴについて */
+
+#logo {
+    float: left;
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #49A1EB;
+    letter-spacing: 1px;
+    padding-top: 0px;
+    font-weight: bolder;
+}
+
+#logo:hover {
+    color: #fff;
+    text-decoration: none;
+}
