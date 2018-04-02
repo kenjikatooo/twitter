@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%# #は名前付きルートに変わる %>
+        <%= link_to "twitter", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム", root_path %></li>
+            <li><%= link_to "ヘルプ", help_path %></li>
+            <li><%= link_to "ログイン", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+</header>

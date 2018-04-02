@@ -88,3 +88,41 @@ p {
     color: #fff;
     text-decoration: none;
 }
+
+
+/* フッターについて */
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    color: #777;
+}
+
+footer a {
+    color: #999;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+
+/* twitterの文字は左揃え */
+
+footer small {
+    float: left;
+}
+
+
+/* お問い合わせなどは右揃え */
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
