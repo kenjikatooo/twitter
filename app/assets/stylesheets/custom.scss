@@ -1,5 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@mixin box_sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 
 /* 全体的なレイアウトの設計 */
 
@@ -163,4 +169,21 @@ aside {
 
 .gravatar_edit {
     margin-top: 15px;
+}
+
+
+/* フォームについて（新規登録画面、ログイン画面） */
+
+input,
+textarea,
+select,
+.uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+}
+
+input {
+    height: auto !important;
 }

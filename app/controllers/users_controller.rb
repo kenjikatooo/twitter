@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def new
+    #@userをこれから使っていくので変数として定義しておく
+    @user = User.new
   end
 
   def show
