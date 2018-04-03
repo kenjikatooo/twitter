@@ -1,9 +1,1 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  email: MyString
-
-two:
-  name: MyString
-  email: MyString
+#空にする→もともとmystringって書いたユーザーが二人いてユニークじゃなかったからエラーが出てた

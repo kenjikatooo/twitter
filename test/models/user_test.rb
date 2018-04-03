@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(name:"Example User", email:"example@unko.com")
+    @user = User.new(name:"Example User", email:"example@unko.com", 
+      password:"iamunko", password_confirmation:"iamunko")
   end
 
   test "user should be valid" do
@@ -60,5 +61,25 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
+  end
+
+  test "メールアドレスが小文字で保存するbefore_saveアクションをテスト" do
+    #大文字小文字が混ざったメールアドレスを設定し保存する
+    mixed_case_email = "Unko@exAlE.Com"
+    @user.email = mixed_case_email
+    @user.save
+    #保存されたメールとmixedのdowncaseが一緒かどうかを比較
+    assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test "パスワードが記入されているかどうかテスト" do
+    #ない場合をアウトにする
+    @user.password = @user.password_confirmation = " "*6
+    assert_not @user.valid?
+  end
+
+  test "パスワードが最低限の長さであることをテスト" do
+    @user.password = "a"*5
+    assert_not @user.valid?
   end
 end
