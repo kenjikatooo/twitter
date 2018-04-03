@@ -52,4 +52,13 @@ class UserTest < ActiveSupport::TestCase
       assert_not @user.valid?, "#{invalid_address.inspect} は無効です"
     end
   end
+
+  test "メールアドレスの一意性をテスト" do
+    #dupは同じ属性を持つデータを複製するメソッド
+    duplicate_user = @user.dup
+    #メールは大文字小文字が区別されないために、わざと大文字もエラーになるようにする
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
+  end
 end
