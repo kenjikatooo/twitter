@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      #redirect_to users_path
+      #sessions_helperで定められたlog_in メソッドを使ってuserにログインする
+      log_in user
+      redirect_to user
     else
       #他の画面に行った時にフラッシュが消えるように.nowをつける
       flash.now[:danger] = 'メールアドレスまたはパスワードが間違っています'
@@ -15,5 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 end

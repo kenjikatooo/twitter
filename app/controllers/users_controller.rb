@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     #User.new(name~~)とやってることは一緒でそれをparamsでやってる
     @user = User.new(user_params) #まだ実装は終わってないぜ
     if @user.save
+      log_in @user
       flash[:success] = "ようこそtwitterへ"
       #ユーザーのページへ返す（ユーザー＝@user）
       redirect_to @user

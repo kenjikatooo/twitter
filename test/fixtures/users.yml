@@ -1,1 +1,4 @@
-#空にする→もともとmystringって書いたユーザーが二人いてユニークじゃなかったからエラーが出てた
+graham:
+ name: Paul Graham
+ email: graham@yc.com
+ password_digest: <%= User.digest('password') %>
