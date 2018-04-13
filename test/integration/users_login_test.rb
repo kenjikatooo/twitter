@@ -48,5 +48,20 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
   end
+
+  test "remember_meを使ってログインできるかどうか" do
+    log_in_as(@user, remember_me: '1')
+    #remember_tokenが保存されているかどうか
+    assert_not_empty cookies['remember_token']
+  end
+
+  test "remember_meなしでログイン" do
+    #クッキーを保存してログイン
+    log_in_as(@user, remember_me:'1')
+    delete logout_path
+    #クッキーを削除してログイン
+    log_in_as(@user, remember_me: '0')
+    assert_empty cookies['remember_token']
+  end
 end
 
