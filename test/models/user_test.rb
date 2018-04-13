@@ -82,4 +82,8 @@ class UserTest < ActiveSupport::TestCase
     @user.password = "a"*5
     assert_not @user.valid?
   end
+
+  test "authenticated?メソッドがnil digestの時にfalseを返すか" do
+    assert_not @user.authenticated?('')
+  end
 end
