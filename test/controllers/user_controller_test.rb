@@ -8,6 +8,12 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     @other_user = users(:chris)
   end
   
+  test "未ログイン時にインデックスページを見せない" do
+      get users_path
+      assert_redirected_to login_url
+  end
+
+
   test "should get new" do
     get signup_path
     assert_response :success
