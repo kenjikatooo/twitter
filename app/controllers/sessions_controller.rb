@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
       #  forget(user)
       # end
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      remember user
       redirect_to user
     else
       #他の画面に行った時にフラッシュが消えるように.nowをつける
