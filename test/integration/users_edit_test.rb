@@ -22,11 +22,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'users/edit'
   end
 
-  test "編集の成功" do
+  test "編集の成功withフレンドリーフォワーディング" do
+    #最初に編集のurlを要求する
+    get edit_user_path(@user)
     #まずテストユーザーでログインする→beforeアクションを乗り越える
     log_in_as(@user)
-    get edit_user_path(@user)
-    assert_template 'users/edit'
+    #ログインしたら編集画面に戻るようにする
+    assert_redirected_to edit_user_path(@user)
     #変えたいユーザーの情報を追加で入力する
     #パスワードは入力しなくても更新できるようにする
     name = "Foo Bar"

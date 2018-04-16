@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       #  forget(user)
       # end
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      #記憶したURLにリダイレクトする
+      redirect_back_or user
     else
       #他の画面に行った時にフラッシュが消えるように.nowをつける
       flash.now[:danger] = 'メールアドレスまたはパスワードが間違っています'
