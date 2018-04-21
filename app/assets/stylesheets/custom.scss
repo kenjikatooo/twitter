@@ -84,15 +84,24 @@ p {
     float: left;
     margin-top: 10px;
     font-size: 1.5em;
-    color: #49A1EB;
+    color: #fff;
     letter-spacing: 1px;
     padding-top: 0px;
     font-weight: bolder;
 }
 
 #logo:hover {
-    color: #fff;
+    color: #bbb;
     text-decoration: none;
+}
+
+.navbar-inverse {
+    background-color: #52A9DC;
+    border-color: #52A9DC;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
 }
 
 
