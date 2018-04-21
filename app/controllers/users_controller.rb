@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only:[:edit, :update]
+  before_action : admin_user, onle: :destroy
 
+  #ユーザーの一覧を表示するメソッド
   def index
-    @users = User.all
+    #params[:page]がwill_paginateによって自動生成されるのでpage: 1とかになる
+    @users = User.paginate(page: params[:page])
   end
 
   def new
@@ -51,6 +54,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーは正常に削除されましtあ！"
+    redirect_to users_url
+  end
+
   private
 
   def user_params
@@ -72,5 +81,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #現在のユーザーではなかったらホームへ戻す
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end
