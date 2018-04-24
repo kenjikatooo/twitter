@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     #User.new(name~~)とやってることは一緒でそれをparamsでやってる
     @user = User.new(user_params)
         if @user.save
+          @user.send_activation_email
           log_in @user
           flash[:success] = "ようこそtwitterへ"
           #ユーザーのページへ返す（ユーザー＝@user）
