@@ -1,0 +1,7 @@
+こんにちは <%= @user.name %>,
+
+ようこそ twitter へ！
+以下のURLからアカウントの認証を完了してください。
+
+
+<%= edit_acount_activation_url(@user.activation_token, email: @user.email) %>

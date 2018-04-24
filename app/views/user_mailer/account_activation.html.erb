@@ -1,0 +1,9 @@
+<h1>Twitter</h1>
+
+<p>こんにちは <%= @user.name %>,<p>
+
+<p>ようこそ twitter へ！<br>
+以下のURLからアカウントの認証を完了してください。
+</p>
+
+<%= link_to "アカウントを認証する", edit_acount_activation_url(@user.activation_token, email: @user.email) %>
