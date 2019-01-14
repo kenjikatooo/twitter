@@ -1,19 +1,17 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Googleアナリティクス アクセス除外</title>
-<meta name="robots" content="noindex,nofollow">
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-00000000-0']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+<meta charset="utf-8">
+<title>クッキー設定ページ</title>
 </head>
-<body onLoad="javascript:_gaq.push(['_setVar', 'no_analytics']);"> 
-<p>Googleアナリティクスの解析対象から除外されました。</p>
+<body onload="javascript:pageTracker._setVar('no_analytics');"><!-- 変更箇所その1 -->
+<p>アクセスを除外するためのクッキーを設定しました。</p>
+<script>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+var pageTracker = _gat._getTracker("UA-132405115-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
 </body>
 </html>
