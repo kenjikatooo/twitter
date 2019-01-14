@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
+  get '/ga_setting.html', to: 'static_pages#ga_setting'
   get '/signup', to: 'users#new'
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
